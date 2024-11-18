@@ -1,12 +1,10 @@
-name: Build Image
+name: build docker image
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - Dockerfile
-      - .github/workflows/build.yml
+      
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -15,7 +13,7 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@master
-
+        
       -
         name: Set Up QEMU
         uses: docker/setup-qemu-action@v1
@@ -41,4 +39,3 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/stool:latest
-            ${{ secrets.DOCKER_USERNAME }}/stool:${{ env.app_version }}

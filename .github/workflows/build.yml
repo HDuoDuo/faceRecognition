@@ -38,4 +38,4 @@ jobs:
             linux/amd64
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/stool:latest
+            ${{ secrets.DOCKER_USERNAME }}/faceRecognition:latest
